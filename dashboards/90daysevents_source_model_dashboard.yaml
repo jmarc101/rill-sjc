@@ -1,0 +1,80 @@
+# Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+type: metrics_view
+title: Metrics for 90daysevents_source_model table
+model: 90daysevents_source_model
+timeseries: timestamp
+default_time_range: rill-MTD
+smallest_time_grain: "hour"
+default_theme: theme
+dimensions:
+  - label: Trait Os Family
+    column: trait_os_family
+    description: ""
+  - label: Trait Region
+    column: trait_region
+    description: ""
+  - label: Trait User Type
+    column: trait_user_type
+    description: ""
+  - label: Trait City
+    column: trait_city
+    description: ""
+  - label: Trait Device Family
+    column: trait_device_family
+    description: ""
+  - label: Trait Browser
+    column: trait_browser
+    description: ""
+  - label: Trait Isp
+    column: trait_isp
+    description: ""
+  - label: Trait Country
+    column: trait_country
+    description: ""
+  - label: Trait User Loyalty
+    column: trait_user_loyalty
+    description: ""
+  - label: Trait Device Type
+    column: trait_device_type
+    description: ""
+measures:
+  - name: total_events
+    label: Total Events
+    expression: COUNT(*)
+    description: Count of total events in the table
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: unique_users
+    label: Unique Users
+    expression: COUNT(DISTINCT id_c)
+    description: Count of unique users in the table
+    format_preset: humanize
+    valid_percent_of_total: false
+available_time_zones:
+  - America/Los_Angeles
+  - America/New_York
+
+available_time_ranges:
+  - PT6H
+  - PT24H
+  - P7D
+  - P14D
+  - P4W
+  - P3M
+  - rill-TD
+  - rill-WTD
+  - rill-MTD
+  - rill-QTD
+  - rill-YTD
+  - rill-PDC
+  - rill-PWC
+  - rill-PMC
+  - rill-PQC
+  - rill-PYC
+
+
+security:
+  access: "{{ .user.admin }} OR '{{ .user.domain }}' == 'example.com'"

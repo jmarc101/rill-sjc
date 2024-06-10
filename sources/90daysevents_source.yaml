@@ -1,0 +1,24 @@
+# Source YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/sources
+  
+type: source
+
+connector: "bigquery"
+sql: "SELECT
+    user_id AS id_c,
+    ua_os_family AS trait_os_family,
+    geoip_region AS trait_region,
+    type AS trait_user_type,
+    geoip_city AS trait_city,
+    ua_device_family AS trait_device_family,
+    ua_browser_family AS trait_browser,
+    geoip_isp AS trait_isp,
+    geoip_country AS trait_country,
+    user_loyalty AS trait_user_loyalty,
+    device AS trait_device_type,
+    timestamp
+  FROM
+    `optable-sjc-solutions.sjc_statera_event_data.raw_event_data`
+  WHERE
+    TIMESTAMP_DIFF(CURRENT_TIMESTAMP(), timestamp, DAY) <= 90"
+project_id: "optable-sjc-solutions"

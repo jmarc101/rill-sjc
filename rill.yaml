@@ -1,0 +1,10 @@
+compiler: rillv1
+
+title: "SJC Statera events for last 360 days"
+
+
+# These are example mock users to test your security policies.
+# Learn more: https://docs.rilldata.com/manage/security
+mock_users:
+- email: john@optable.com
+- email: jane@weirdemail.com
